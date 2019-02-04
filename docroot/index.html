@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+	html,body{
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		display: block;
+		background-color: black;
+		overflow: none;
+	}
+	#osc {
+		min-height: 100%;
+		min-width: 100%;
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+	.osc40hz {
+		background-color: white;
+		animation: fadeOutIn 0.025s linear infinite;
+	}
+
+	@keyframes fadeOutIn {
+		0%   { opacity:1; }
+		49%  { opacity:1; }
+		50%  { opacity:0; }
+		99%  { opacity:0; }
+		100% { opacity:1; }
+	}
+	@-o-keyframes fadeOutIn{
+		0%   { opacity:1; }
+		49%  { opacity:1; }
+		50%  { opacity:0; }
+		99%  { opacity:0; }
+		100% { opacity:1; }	}
+	@-moz-keyframes fadeOutIn{
+		0%   { opacity:1; }
+		49%  { opacity:1; }
+		50%  { opacity:0; }
+		99%  { opacity:0; }
+		100% { opacity:1; }	}
+	@-webkit-keyframes fadeOutIn{
+		0%   { opacity:1; }
+		49%  { opacity:1; }
+		50%  { opacity:0; }
+		99%  { opacity:0; }
+		100% { opacity:1; }
+	}
+
+	.hidden {
+		display: none;
+	}
+
+</style>
+</head>
+<body>
+
+	<button id="run">this doesn't work great yet -- LEd probably is better -- anyway here you go `start`</button>
+	<audio src="audio/pinknoise-90sec.wav" id="pinknoise" loop preload></audio>
+	<div id="osc">&nbsp;</div>
+
+	<script>
+
+		var osc = document.getElementById("osc");
+		var audio = document.getElementById("pinknoise");
+		var runner = document.getElementById("run");
+
+		function run(){
+			runner.classList.add("hidden");
+			osc.classList.add("osc40hz");
+			audio.play();
+		}
+
+		runner.onclick = run;
+
+	</script>
+
+</body>
+</html>
